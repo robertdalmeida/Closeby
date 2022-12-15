@@ -8,6 +8,7 @@ enum NetworkRequestError: Error {
     case underlyingError(Error)
 }
 
+/// Anyone who wishes to send a network request should conform to this protocol - This can be mocked
 protocol HTTPClientProtocol {
     func sendRequest<T: Decodable>(endpoint: NetworkRequestProtocol, responseModel: T.Type) async -> Result<T, NetworkRequestError>
 }

@@ -7,6 +7,8 @@ protocol PlaceStoreProtocol {
 
 @MainActor
 final class SearchViewModel: ObservableObject {
+    
+    /// The search view could be either in a processing state, a loaded state or error state.
     enum State {
         case processing(Task<Void, Never>)
         case dataLoaded
@@ -31,6 +33,8 @@ final class SearchViewModel: ObservableObject {
     init(placeStore: PlaceStoreProtocol) {
         self.placeStore = placeStore
         
+        // Here we configure debouncing for the 2 configurable parameters (the query & the radius)
+        // We debounce to avoid sending multiple api requests.
         $query
             .debounce(for: .milliseconds(500), scheduler: DispatchQueue.main)
             .removeDuplicates()
@@ -63,6 +67,7 @@ final class SearchViewModel: ObservableObject {
         .init {
             do {
                 places = try await placeStore.fetch(radiusInMeters: radiusInMeters, query: query)
+                // There is a possibility that there might be an existing task running when a new one is created, in such a acase we can simply check for cancellation and bail out to be thread safe.
                 guard !Task.isCancelled else { return }
                 state = .dataLoaded
             } catch {

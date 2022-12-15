@@ -48,7 +48,7 @@ enum NetworkRequest: NetworkRequestProtocol {
     var header: [String : String]? {
         switch self {
         case .places: return ["Accept": "application/json",
-                              "Authorization": "fsq3z0+K5lzOgx4AI0pgcGTgh9XclYawbnx6N8t8934+Hfw="]
+                              "Authorization": "fsq3z0+K5lzOgx4AI0pgcGTgh9XclYawbnx6N8t8934+Hfw="] // Note: the best place to keep an API secret is not to have one, and if we really wanted to recieve this - we should get this from a secure service. This isn't a good place to keep this key. Keeping it here only for the purpose of this demostration.
         }
     }
     
