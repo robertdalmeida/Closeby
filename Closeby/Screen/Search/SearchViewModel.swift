@@ -1,6 +1,10 @@
 import Foundation
 import Combine
 
+protocol PlaceStoreProtocol {
+    func fetch(radiusInMeters: Double, query: String) async throws -> [Place]
+}
+
 @MainActor
 final class SearchViewModel: ObservableObject {
     enum State {
@@ -9,7 +13,7 @@ final class SearchViewModel: ObservableObject {
         case error
     }
 
-    var placeStore: PlaceStore
+    var placeStore: PlaceStoreProtocol
     
     @Published var places: [Place] = []
     @Published var radiusInMeters: Double = 1000
@@ -24,7 +28,7 @@ final class SearchViewModel: ObservableObject {
 
     // MARK: - init
     
-    init(placeStore: PlaceStore) {
+    init(placeStore: PlaceStoreProtocol) {
         self.placeStore = placeStore
         
         $query

@@ -36,7 +36,8 @@ struct SearchView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(viewModel: .init(placeStore: .init()))
+        SearchView(viewModel: .init(placeStore:
+                                        PlaceStore.init(userLocationService: UserLocationService.shared)))
     }
 }
 
