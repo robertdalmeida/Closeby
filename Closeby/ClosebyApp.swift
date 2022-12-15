@@ -13,8 +13,7 @@ struct ClosebyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(placeStore)
+            ContentView(viewModel: .init(placeStore: placeStore))
         }
     }
 }

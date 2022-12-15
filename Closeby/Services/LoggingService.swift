@@ -1,7 +1,7 @@
 import Foundation
 import struct os.Logger
 
-@objc final class AppLogger: NSObject {
+final class AppLogger: NSObject {
     private static let shared = AppLogger(systemLogger: Logger())
     
     let systemLogger: Logger
