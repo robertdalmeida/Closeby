@@ -1,10 +1,3 @@
-//
-//  ClosebyUITestsLaunchTests.swift
-//  ClosebyUITests
-//
-//  Created by robert on 14/12/2022.
-//
-
 import XCTest
 
 final class ClosebyUITestsLaunchTests: XCTestCase {

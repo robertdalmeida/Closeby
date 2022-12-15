@@ -43,6 +43,9 @@ final class AppLogger: NSObject {
         Self.shared.log(.info(text: prefix + "\(function)" + text))
     }
 
+    class func logNetwork(_ text: String, function: StaticString = #function, prefix: String = "BOB:Network:") {
+        Self.shared.log(.info(text: prefix + "\(function)" + text))
+    }
     
     class func logCritical(_ text: String, function: StaticString = #function, prefix: String = "BOB:") {
         Self.shared.log(.critical(text: prefix + "\(function)" + text))

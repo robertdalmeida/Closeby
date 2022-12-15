@@ -1,10 +1,3 @@
-//
-//  ClosebyApp.swift
-//  Closeby
-//
-//  Created by robert on 14/12/2022.
-//
-
 import SwiftUI
 
 @main
@@ -13,7 +6,7 @@ struct ClosebyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: .init(placeStore: placeStore))
+            SearchView(viewModel: .init(placeStore: placeStore))
         }
     }
 }
