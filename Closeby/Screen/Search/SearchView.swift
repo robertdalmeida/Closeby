@@ -10,7 +10,7 @@ struct SearchView: View {
             VStack {
                 detailsView
                 Slider(value: $viewModel.radiusInMeters, in: viewModel.rangeOfRadius)
-                Text("\(viewModel.radiusInKms, specifier: "%0.2f") kms")
+                Text("Radius of search is \(viewModel.radiusInKms, specifier: "%0.2f") kms")
             }
             .padding()
             .onAppear {
@@ -24,11 +24,7 @@ struct SearchView: View {
     var detailsView: some View {
         switch viewModel.state {
         case .dataLoaded:
-            List(viewModel.places, id: \.id) { item in
-                VStack(alignment: .leading) {
-                    Text(item.name)
-                }
-            }
+            PlacesList(places: viewModel.places)
 
         case .error:
             Text("Error ⚠️")

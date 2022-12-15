@@ -14,7 +14,7 @@ final class SearchViewModel: ObservableObject {
     @Published var places: [Place] = []
     @Published var radiusInMeters: Double = 1000
     @Published var state: State = .dataLoaded
-    @Published var query: String = "Venues"
+    @Published var query: String = ""
 
     var radiusInKms: Double {
         radiusInMeters/1000
