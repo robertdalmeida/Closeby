@@ -8,11 +8,17 @@ struct PlacesList: View {
     var body: some View {
         switch state {
         case .dataLoaded:
-            List(places) { place in
-                PlaceRow(place: place)
-                    .listRowSeparator(.hidden)
+            if places.count > 0 {
+                List(places) { place in
+                    PlaceRow(place: place)
+                        .listRowSeparator(.hidden)
+                }
+                .listStyle(InsetListStyle())
+            } else {
+                Spacer()
+                NoResults()
+                Spacer()
             }
-            .listStyle(InsetListStyle())
 
         case .error:
             Text("Error ⚠️")
@@ -26,7 +32,17 @@ struct PlacesList: View {
 }
 
 struct PlacesList_Previews: PreviewProvider {
+    static let places: [Place] = [.init(name: "Robert",
+                                        distance: 1245,
+                                        id: "1234",
+                                        location: .init(formattedAddress: "616 E Pine St, Seattle, WA 98122")),
+                         .init(name: "Robert",
+                               distance: 1245,
+                               id: "1234",
+                               location: .init(formattedAddress: "616 E Pine St, Seattle, WA 98122"))]
+
     static var previews: some View {
-        PlacesList(places: [.init(name: "Robert", distance: 1245, id: "1234", location: .init(formattedAddress: "616 E Pine St, Seattle, WA 98122"))], state: .dataLoaded)
+        PlacesList(places: [],
+                   state: .dataLoaded)
     }
 }
