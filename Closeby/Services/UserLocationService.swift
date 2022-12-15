@@ -2,7 +2,7 @@ import Foundation
 import CoreLocation
 
 protocol UserLocationServiceProtocol {
-    var lastKnownLocation: CLLocation? { get }
+    func requestCurrentLocation() async throws -> CLLocation
 }
 
 /// This type ges the user's location and keeps it.
@@ -21,10 +21,13 @@ final class UserLocationService: NSObject, UserLocationServiceProtocol {
         return manager
     }()
         
-    var lastKnownLocation: CLLocation?
-    var requestLocationContinuation: CheckedContinuation<CLLocation, Error>?
+    private var requestLocationContinuation: CheckedContinuation<CLLocation, Error>?
+    private var lastLocation: CLLocation?
     
     func requestCurrentLocation() async throws -> CLLocation {
+        if let lastLocation {
+            return lastLocation
+        }
         locationManager.requestWhenInUseAuthorization()
         return try await withCheckedThrowingContinuation { continuation in
             requestLocationContinuation = continuation
@@ -40,18 +43,19 @@ extension UserLocationService: CLLocationManagerDelegate {
             locationManager.requestLocation()
         case .notDetermined:
             manager.requestWhenInUseAuthorization()
-        case .denied:
+        case .denied, .restricted:
             requestLocationContinuation?.resume(throwing: UserLocationServiceError.noPermission)
-        case .restricted:
-            requestLocationContinuation?.resume(throwing: UserLocationServiceError.noPermission)
+            requestLocationContinuation = nil
         @unknown default:
             requestLocationContinuation?.resume(throwing: UserLocationServiceError.noPermission)
+            requestLocationContinuation = nil
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         AppLogger.logInfo("\(#function)")
         requestLocationContinuation?.resume(throwing: error)
+        requestLocationContinuation = nil
 
     }
     
@@ -59,9 +63,12 @@ extension UserLocationService: CLLocationManagerDelegate {
         AppLogger.logInfo("\(#function) locations:\(locations)")
         guard let location = locations.first else {
             requestLocationContinuation?.resume(throwing: UserLocationServiceError.unableToRetrieveLocation)
+            requestLocationContinuation = nil
             return
         }
+        lastLocation = location
         requestLocationContinuation?.resume(returning: location)
+        requestLocationContinuation = nil
     }
 }
 

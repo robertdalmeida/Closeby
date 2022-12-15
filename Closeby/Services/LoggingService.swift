@@ -33,18 +33,18 @@ import struct os.Logger
         }
     }
     
-    @objc
-    class func logTrace(_ text: String, function: String = "\(#function)", prefix: String = "BOB:") {
-        Self.shared.log(.trace(text: prefix + function + text))
+    
+    class func logTrace(_ text: String, function: StaticString = #function, prefix: String = "BOB:") {
+        Self.shared.log(.trace(text: prefix + "\(function)" + text))
     }
     
-    @objc
-    class func logInfo(_ text: String, function: String = "\(#function)", prefix: String = "BOB:") {
-        Self.shared.log(.info(text: prefix + function + text))
+    
+    class func logInfo(_ text: String, function: StaticString = #function, prefix: String = "BOB:") {
+        Self.shared.log(.info(text: prefix + "\(function)" + text))
     }
 
-    @objc
-    class func logCritical(_ text: String, function: String = "\(#function)", prefix: String = "BOB:") {
-        Self.shared.log(.critical(text: prefix + function + text))
+    
+    class func logCritical(_ text: String, function: StaticString = #function, prefix: String = "BOB:") {
+        Self.shared.log(.critical(text: prefix + "\(function)" + text))
     }
 }
