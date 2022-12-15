@@ -1,10 +1,3 @@
-//
-//  PlaceRow.swift
-//  Closeby
-//
-//  Created by robert on 15/12/2022.
-//
-
 import SwiftUI
 
 struct PlaceRow: View {

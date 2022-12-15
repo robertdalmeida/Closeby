@@ -8,32 +8,16 @@ struct SearchView: View {
 
         NavigationStack {
             VStack {
-                detailsView
+                PlacesList(places: viewModel.places, state: viewModel.state)
                 Slider(value: $viewModel.radiusInMeters, in: viewModel.rangeOfRadius)
+                    .padding()
                 Text("Radius of search is \(viewModel.radiusInKms, specifier: "%0.2f") kms")
             }
-            .padding()
             .onAppear {
                 viewModel.fetch()
             }
         }
         .searchable(text: $viewModel.query, prompt: "Search")
-    }
-        
-    @ViewBuilder
-    var detailsView: some View {
-        switch viewModel.state {
-        case .dataLoaded:
-            PlacesList(places: viewModel.places)
-
-        case .error:
-            Text("Error ⚠️")
-        case .processing:
-            Spacer()
-            ProgressView()
-                .progressViewStyle(.circular)
-            Spacer()
-        }
     }
 }
 
