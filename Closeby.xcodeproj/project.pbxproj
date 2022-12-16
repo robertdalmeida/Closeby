@@ -15,6 +15,12 @@
 		E11C4F24294BD9A600C204BB /* NoResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C4F23294BD9A600C204BB /* NoResults.swift */; };
 		E11C4F27294BDD7100C204BB /* View+ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C4F26294BDD7100C204BB /* View+ConditionalModifier.swift */; };
 		E11C4F29294BDF8300C204BB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E11C4F28294BDF8300C204BB /* README.md */; };
+		E11C4F2B294BEA1500C204BB /* PlaceNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C4F2A294BEA1500C204BB /* PlaceNavigationCoordinator.swift */; };
+		E11C4F2E294BEB3200C204BB /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C4F2D294BEB3200C204BB /* PlaceDetailView.swift */; };
+		E11C4F31294C61A800C204BB /* PlaceDetailNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C4F30294C61A800C204BB /* PlaceDetailNetworkRequest.swift */; };
+		E11C4F33294C629B00C204BB /* PlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C4F32294C629B00C204BB /* PlaceDetail.swift */; };
+		E11C4F35294C767400C204BB /* PlaceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C4F34294C767400C204BB /* PlaceCategory.swift */; };
+		E11C4F37294C7F1300C204BB /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C4F36294C7F1300C204BB /* CategoriesView.swift */; };
 		E1CDBBD9294A7F8D009CC1C8 /* ClosebyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDBBD8294A7F8D009CC1C8 /* ClosebyApp.swift */; };
 		E1CDBBDB294A7F8D009CC1C8 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDBBDA294A7F8D009CC1C8 /* SearchView.swift */; };
 		E1CDBBDD294A7F8F009CC1C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CDBBDC294A7F8F009CC1C8 /* Assets.xcassets */; };
@@ -57,6 +63,12 @@
 		E11C4F23294BD9A600C204BB /* NoResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResults.swift; sourceTree = "<group>"; };
 		E11C4F26294BDD7100C204BB /* View+ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ConditionalModifier.swift"; sourceTree = "<group>"; };
 		E11C4F28294BDF8300C204BB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E11C4F2A294BEA1500C204BB /* PlaceNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceNavigationCoordinator.swift; sourceTree = "<group>"; };
+		E11C4F2D294BEB3200C204BB /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
+		E11C4F30294C61A800C204BB /* PlaceDetailNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailNetworkRequest.swift; sourceTree = "<group>"; };
+		E11C4F32294C629B00C204BB /* PlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetail.swift; sourceTree = "<group>"; };
+		E11C4F34294C767400C204BB /* PlaceCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCategory.swift; sourceTree = "<group>"; };
+		E11C4F36294C7F1300C204BB /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		E1CDBBD5294A7F8D009CC1C8 /* Closeby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Closeby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CDBBD8294A7F8D009CC1C8 /* ClosebyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosebyApp.swift; sourceTree = "<group>"; };
 		E1CDBBDA294A7F8D009CC1C8 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -108,6 +120,7 @@
 			children = (
 				E11C4F18294BBC7500C204BB /* Search */,
 				E11C4F1D294BC31600C204BB /* PlacesList */,
+				E11C4F2C294BEB2400C204BB /* PlaceDetail */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -117,6 +130,7 @@
 			children = (
 				E1CDBBDA294A7F8D009CC1C8 /* SearchView.swift */,
 				E11C4F19294BBEAA00C204BB /* SearchViewModel.swift */,
+				E11C4F2A294BEA1500C204BB /* PlaceNavigationCoordinator.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -135,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				E11C4F21294BC46C00C204BB /* PlaceRow.swift */,
+				E11C4F36294C7F1300C204BB /* CategoriesView.swift */,
 			);
 			path = PlaceRow;
 			sourceTree = "<group>";
@@ -145,6 +160,23 @@
 				E11C4F26294BDD7100C204BB /* View+ConditionalModifier.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E11C4F2C294BEB2400C204BB /* PlaceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E11C4F2D294BEB3200C204BB /* PlaceDetailView.swift */,
+			);
+			path = PlaceDetail;
+			sourceTree = "<group>";
+		};
+		E11C4F2F294C618200C204BB /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E1CDBC0C294A8FDE009CC1C8 /* PlaceSearchNetworkRequest.swift */,
+				E11C4F30294C61A800C204BB /* PlaceDetailNetworkRequest.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		E1CDBBCC294A7F8D009CC1C8 = {
@@ -222,6 +254,7 @@
 		E1CDBC06294A8F80009CC1C8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E11C4F2F294C618200C204BB /* API */,
 				E1CDBC07294A8F87009CC1C8 /* Network */,
 				E1CDBC11294A9287009CC1C8 /* LoggingService.swift */,
 				E1CDBC13294AA3B3009CC1C8 /* UserLocationService.swift */,
@@ -234,7 +267,6 @@
 			children = (
 				E1CDBC08294A8F93009CC1C8 /* HTTPClient.swift */,
 				E1CDBC0A294A8FB9009CC1C8 /* NetworkRequest.swift */,
-				E1CDBC0C294A8FDE009CC1C8 /* PlaceSearchNetworkRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -244,6 +276,8 @@
 			children = (
 				E1CDBC0F294A9173009CC1C8 /* Place.swift */,
 				E11C4F1B294BC28F00C204BB /* Location.swift */,
+				E11C4F32294C629B00C204BB /* PlaceDetail.swift */,
+				E11C4F34294C767400C204BB /* PlaceCategory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -383,14 +417,20 @@
 				E11C4F24294BD9A600C204BB /* NoResults.swift in Sources */,
 				E11C4F27294BDD7100C204BB /* View+ConditionalModifier.swift in Sources */,
 				E1CDBC14294AA3B3009CC1C8 /* UserLocationService.swift in Sources */,
+				E11C4F35294C767400C204BB /* PlaceCategory.swift in Sources */,
+				E11C4F33294C629B00C204BB /* PlaceDetail.swift in Sources */,
 				E11C4F22294BC46C00C204BB /* PlaceRow.swift in Sources */,
+				E11C4F2B294BEA1500C204BB /* PlaceNavigationCoordinator.swift in Sources */,
+				E11C4F37294C7F1300C204BB /* CategoriesView.swift in Sources */,
 				E1CDBBDB294A7F8D009CC1C8 /* SearchView.swift in Sources */,
 				E1CDBBD9294A7F8D009CC1C8 /* ClosebyApp.swift in Sources */,
 				E1CDBC0D294A8FDE009CC1C8 /* PlaceSearchNetworkRequest.swift in Sources */,
 				E1CDBC09294A8F93009CC1C8 /* HTTPClient.swift in Sources */,
 				E1CDBC05294A8511009CC1C8 /* PlaceStore.swift in Sources */,
 				E1CDBC10294A9173009CC1C8 /* Place.swift in Sources */,
+				E11C4F31294C61A800C204BB /* PlaceDetailNetworkRequest.swift in Sources */,
 				E1CDBC0B294A8FB9009CC1C8 /* NetworkRequest.swift in Sources */,
+				E11C4F2E294BEB3200C204BB /* PlaceDetailView.swift in Sources */,
 				E11C4F16294B497300C204BB /* ServicedData.swift in Sources */,
 				E11C4F1C294BC29000C204BB /* Location.swift in Sources */,
 				E11C4F1F294BC32800C204BB /* PlacesList.swift in Sources */,

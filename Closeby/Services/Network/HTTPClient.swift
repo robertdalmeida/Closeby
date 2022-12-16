@@ -20,7 +20,7 @@ extension HTTPClientProtocol {
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
         
-        var queryParameters: [URLQueryItem] = []
+        var queryParameters: [URLQueryItem]?
         if let params = endpoint.queryParameters {
             queryParameters = params.map { (key: String, value: String) in
                 URLQueryItem(name: key, value: value)
@@ -42,6 +42,7 @@ extension HTTPClientProtocol {
         AppLogger.logNetwork("\(String(describing: request.url))")
         do {
             let (data, response) = try await URLSession.shared.data(for: request, delegate: nil)
+            AppLogger.logNetwork("RESPONSE: \(response)")
             guard let response = response as? HTTPURLResponse else {
                 return .failure(.noResponse)
             }

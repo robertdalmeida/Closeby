@@ -3,6 +3,7 @@ import SwiftUI
 struct SearchView: View {
     @StateObject var viewModel: SearchViewModel
     @State var radiusBeingChanged = false
+    @StateObject var navigationCoordinator = PlaceDetailNavigationCoordinator()
     
     var body: some View {
         let _ = Self._printChanges()
@@ -25,11 +26,14 @@ struct SearchView: View {
                     Text("Radius of search is \(viewModel.radiusInKms, specifier: "%0.2f") kms")
                         .bold()
                 }
-                .onAppear {
-                    viewModel.fetch()
-                }
+            }
+            .navigationDestination(for: Place.self) {
+                PlaceDetailView(place: $0)
             }
             .searchable(text: $viewModel.query, prompt: "Search")
+        }
+        .onAppear {
+            viewModel.fetch()
         }
     }
 }

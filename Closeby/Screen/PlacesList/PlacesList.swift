@@ -10,8 +10,13 @@ struct PlacesList: View {
         case .dataLoaded:
             if places.count > 0 {
                 List(places) { place in
-                    PlaceRow(place: place)
-                        .listRowSeparator(.hidden)
+                    NavigationLink {
+                        PlaceDetailView(place: place)
+                    } label: {
+                        PlaceRow(place: place)
+                    }
+                    .listRowSeparator(.hidden)
+
                 }
                 .listStyle(InsetListStyle())
             } else {
@@ -35,11 +40,13 @@ struct PlacesList_Previews: PreviewProvider {
     static let places: [Place] = [.init(name: "Robert",
                                         distance: 1245,
                                         id: "1234",
-                                        location: .init(formattedAddress: "616 E Pine St, Seattle, WA 98122")),
+                                        location: .init(formattedAddress: "616 E Pine St, Seattle, WA 98122"),
+                                        categories: [.mockNailSalon]),
                          .init(name: "Robert",
                                distance: 1245,
                                id: "1234",
-                               location: .init(formattedAddress: "616 E Pine St, Seattle, WA 98122"))]
+                               location: .init(formattedAddress: "616 E Pine St, Seattle, WA 98122"),
+                               categories: [.mockNailSalon])]
 
     static var previews: some View {
         PlacesList(places: [],

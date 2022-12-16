@@ -17,10 +17,11 @@ struct PlaceRow: View {
                         Spacer()
                     }
                     HStack {
-                        Text(place.location.formattedAddress)
+                        place.location.map{ Text($0.formattedAddress) }
                             .font(.footnote)
                         Spacer()
                     }
+                    CategoriesView(categories: place.categories)
                 }
                 Text("\(place.distance/1000 , specifier: "%0.2f") kms")
                     .font(.subheadline)
@@ -28,16 +29,12 @@ struct PlaceRow: View {
             .foregroundColor(.primary)
             .padding()
         }
-
     }
 }
 
 struct PlaceRow_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceRow(place: .init(name: "Realfine Coffee",
-                              distance: 148,
-                              id: "5b2c3681724750002c3e6899",
-                              location: .init(formattedAddress: "616 E Pine St, Seattle, WA 98122")))
+        PlaceRow(place: .mockPlace)
         .previewLayout(.fixed(width: 400, height: 60))
 
     }

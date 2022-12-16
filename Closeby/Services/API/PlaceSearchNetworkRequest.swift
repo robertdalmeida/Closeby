@@ -7,7 +7,8 @@ struct PlaceSearchNetworkRequest: HTTPClientProtocol {
                                                                        sort: "DISTANCE",
                                                                        open: true,
                                                                        location: location,
-                                                                       radius: radius),
+                                                                       radius: radius,
+                                                                       limit: 50),
                                        responseModel: PlaceResponse.self)
         return try result.get().results
     }
