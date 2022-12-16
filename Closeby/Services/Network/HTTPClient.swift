@@ -39,10 +39,9 @@ extension HTTPClientProtocol {
         if let body = endpoint.body {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
         }
-        AppLogger.logNetwork("\(String(describing: request.url))")
         do {
             let (data, response) = try await URLSession.shared.data(for: request, delegate: nil)
-            AppLogger.logNetwork("RESPONSE: \(response)")
+
             guard let response = response as? HTTPURLResponse else {
                 return .failure(.noResponse)
             }

@@ -29,9 +29,6 @@ struct SearchView: View {
                         .bold()
                 }
             }
-            .navigationDestination(for: Place.self) {
-                PlaceDetailView(place: $0)
-            }
             .searchable(text: $viewModel.query, prompt: "Search")
         }
         .onAppear {

@@ -11,7 +11,7 @@ struct PlacesList: View {
             if places.count > 0 {
                 List(places) { place in
                     NavigationLink {
-                        PlaceDetailView(place: place)
+                        PlaceDetailView(viewModel: .init(place: place))
                     } label: {
                         PlaceRow(place: place)
                     }
