@@ -14,6 +14,8 @@ struct SearchView: View {
                         .if(radiusBeingChanged) { view in
                             view.blur(radius: 2.5)
                         }
+                        .navigationTitle("Places Search")
+
                     if radiusBeingChanged {
                         Text("\(viewModel.radiusInKms, specifier: "%0.2f") Kms")
                             .font(.title)
