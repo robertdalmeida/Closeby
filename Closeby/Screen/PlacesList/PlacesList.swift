@@ -26,7 +26,7 @@ struct PlacesList: View {
             }
 
         case .error:
-            Text("Error ⚠️")
+            ErrorView()
         case .processing:
             Spacer()
             ProgressView()

@@ -25,8 +25,9 @@ struct PlaceDetailView: View {
                     .progressViewStyle(.circular)
                 Spacer()
             case .error:
-                Text("Error ⚠️")
-            }        }
+                ErrorView()
+            }
+        }
         .task {
             await viewModel.fetchDetail()
         }

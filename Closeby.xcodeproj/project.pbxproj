@@ -21,6 +21,7 @@
 		E11C4F33294C629B00C204BB /* PlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C4F32294C629B00C204BB /* PlaceDetail.swift */; };
 		E11C4F35294C767400C204BB /* PlaceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C4F34294C767400C204BB /* PlaceCategory.swift */; };
 		E11C4F37294C7F1300C204BB /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C4F36294C7F1300C204BB /* CategoriesView.swift */; };
+		E11C4F3A294D224900C204BB /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11C4F39294D224900C204BB /* ErrorView.swift */; };
 		E1CDBBD9294A7F8D009CC1C8 /* ClosebyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDBBD8294A7F8D009CC1C8 /* ClosebyApp.swift */; };
 		E1CDBBDB294A7F8D009CC1C8 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDBBDA294A7F8D009CC1C8 /* SearchView.swift */; };
 		E1CDBBDD294A7F8F009CC1C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CDBBDC294A7F8F009CC1C8 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		E11C4F32294C629B00C204BB /* PlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetail.swift; sourceTree = "<group>"; };
 		E11C4F34294C767400C204BB /* PlaceCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCategory.swift; sourceTree = "<group>"; };
 		E11C4F36294C7F1300C204BB /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		E11C4F39294D224900C204BB /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		E1CDBBD5294A7F8D009CC1C8 /* Closeby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Closeby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1CDBBD8294A7F8D009CC1C8 /* ClosebyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosebyApp.swift; sourceTree = "<group>"; };
 		E1CDBBDA294A7F8D009CC1C8 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		E11C4F17294BBC6700C204BB /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				E11C4F38294D223F00C204BB /* Error */,
 				E11C4F18294BBC7500C204BB /* Search */,
 				E11C4F1D294BC31600C204BB /* PlacesList */,
 				E11C4F2C294BEB2400C204BB /* PlaceDetail */,
@@ -177,6 +180,14 @@
 				E11C4F30294C61A800C204BB /* PlaceDetailNetworkRequest.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		E11C4F38294D223F00C204BB /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				E11C4F39294D224900C204BB /* ErrorView.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		E1CDBBCC294A7F8D009CC1C8 = {
@@ -421,6 +432,7 @@
 				E11C4F33294C629B00C204BB /* PlaceDetail.swift in Sources */,
 				E11C4F22294BC46C00C204BB /* PlaceRow.swift in Sources */,
 				E11C4F2B294BEA1500C204BB /* PlaceNavigationCoordinator.swift in Sources */,
+				E11C4F3A294D224900C204BB /* ErrorView.swift in Sources */,
 				E11C4F37294C7F1300C204BB /* CategoriesView.swift in Sources */,
 				E1CDBBDB294A7F8D009CC1C8 /* SearchView.swift in Sources */,
 				E1CDBBD9294A7F8D009CC1C8 /* ClosebyApp.swift in Sources */,
